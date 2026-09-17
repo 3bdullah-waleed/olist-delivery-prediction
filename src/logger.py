@@ -19,3 +19,7 @@ logging.basicConfig(
 def get_logger(name: str) -> logging.Logger:
     """Return a named logger, consistent across all modules."""
     return logging.getLogger(name)
+
+
+import src.features
+print(src.features.__file__)
