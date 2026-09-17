@@ -1,5 +1,6 @@
 .env
-*.csv
+data/*.csv
+!data/*.csv.dvc
 models/*.pkl
 __pycache__/
 *.pyc
