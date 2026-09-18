@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/ffkkl/OneDrive/Desktop/Projects/olist-delivery-prediction/mlruns/1/models/m-caa39bb2223b4c678ac1652e1b5ef163/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.13.7
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.16.1
+model_id: m-caa39bb2223b4c678ac1652e1b5ef163
+model_size_bytes: 12183
+model_uuid: m-caa39bb2223b4c678ac1652e1b5ef163
+prompts: null
+run_id: 0d841eba37f847628671c7df0c566623
+utc_time_created: '2026-09-18 01:01:39.780120'

@@ -1,18 +1,21 @@
-import joblib
-import os
+import mlflow
 from src.logger import get_logger
 
 logger = get_logger(__name__)
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "logistic_regression_v1.pkl")
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+
+MODEL_NAME = "olist_late_delivery_model"
+MODEL_ALIAS = "champion"
 
 
 def load_model():
-    """Load the trained model from disk."""
+    """Load the current 'champion' model from MLflow Model Registry."""
     try:
-        model = joblib.load(MODEL_PATH)
-        logger.info(f"Model loaded successfully from {MODEL_PATH}")
+        model_uri = f"models:/{MODEL_NAME}@{MODEL_ALIAS}"
+        model = mlflow.sklearn.load_model(model_uri)
+        logger.info(f"Model loaded successfully from MLflow registry: {model_uri}")
         return model
     except Exception as e:
-        logger.error(f"Failed to load model from {MODEL_PATH}: {e}")
+        logger.error(f"Failed to load model from MLflow registry: {e}")
         raise
