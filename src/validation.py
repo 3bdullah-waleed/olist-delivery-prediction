@@ -40,9 +40,7 @@ def validate_order(df: pd.DataFrame) -> bool:
         )
     )
     suite.add_expectation(
-        gx.expectations.ExpectColumnValuesToBeInSet(
-            column="num_items", value_set=None, mostly=1.0
-        ) if False else gx.expectations.ExpectColumnValuesToBeBetween(
+        gx.expectations.ExpectColumnValuesToBeBetween(
             column="num_items", min_value=1, max_value=None
         )
     )

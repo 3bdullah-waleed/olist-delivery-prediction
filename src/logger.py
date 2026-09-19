@@ -21,5 +21,3 @@ def get_logger(name: str) -> logging.Logger:
     return logging.getLogger(name)
 
 
-import src.features
-print(src.features.__file__)
