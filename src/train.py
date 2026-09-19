@@ -6,9 +6,12 @@ from sklearn.metrics import roc_auc_score, classification_report
 from src.features import FEATURE_COLUMNS
 from src.logger import get_logger
 
+import os
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db"))
+
 logger = get_logger(__name__)
 
-mlflow.set_experiment("olist_late_delivery_prediction")
+mlflow.set_experiment("olist_late_delivery_prediction_v2")
 
 
 def train_model():
