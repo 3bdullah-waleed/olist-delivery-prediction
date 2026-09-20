@@ -5,6 +5,8 @@ from src.model import load_model
 from src.features import add_features, FEATURE_COLUMNS
 from src.validation import validate_order
 from src.logger import get_logger
+import time
+from src.monitoring import log_prediction
 
 logger = get_logger(__name__)
 
@@ -14,6 +16,7 @@ model = load_model()
 
 
 class OrderInput(BaseModel):
+    order_id: str
     order_purchase_timestamp: str
     num_items: float
     total_price: float
@@ -32,6 +35,7 @@ def health_check():
 
 @app.post("/predict")
 def predict(order: OrderInput):
+    start_time = time.time()
     try:
         df = pd.DataFrame([order.model_dump()])
 
@@ -41,7 +45,10 @@ def predict(order: OrderInput):
         prediction = int(model.predict(df[FEATURE_COLUMNS])[0])
         probability = float(model.predict_proba(df[FEATURE_COLUMNS])[:, 1][0])
 
-        logger.info(f"Prediction made: {prediction}, probability: {probability:.4f}")
+        latency_ms = (time.time() - start_time) * 1000
+
+        logger.info(f"Prediction made: {prediction}, probability: {probability:.4f}, latency: {latency_ms:.2f}ms")
+        log_prediction(order.order_id, prediction, probability, latency_ms)
 
         return {
             "prediction": prediction,
