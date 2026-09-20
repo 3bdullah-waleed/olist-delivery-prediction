@@ -2,6 +2,7 @@
 data/*.csv
 !data/*.csv.dvc
 models/*.pkl
+!models/logistic_regression_v1.pkl
 __pycache__/
 *.pyc
 logs/
