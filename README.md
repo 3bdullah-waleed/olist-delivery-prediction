@@ -18,7 +18,7 @@ implementation itself.
 
 **Figure 1: Olist Dataset Table Relationships**
 
-![Dataset relationships](https://raw.githubusercontent.com/3bdullah-waleed/olist-delivery-prediction/main/image.png)
+![Image Alt](https://raw.githubusercontent.com/3bdullah-waleed/olist-delivery-prediction/main/image.png)
 
 Shows the 9 raw tables in the dataset and the keys that connect them:
 `order_id`, `customer_id`, `product_id`, `seller_id`, and `zip_code_prefix`.
@@ -28,7 +28,7 @@ so the final modeling table keeps "one row = one order."
 
 **Figure 2: Order Lifecycle — From Customer to Review**
 
-![Order lifecycle](https://raw.githubusercontent.com/3bdullah-waleed/olist-delivery-prediction/main/Order%20Lifecycle.png)
+![Image Alt](https://raw.githubusercontent.com/3bdullah-waleed/olist-delivery-prediction/main/Order%20Lifecycle.png)
 
 Reframes the same schema as a business process: a customer places an order,
 the order contains items (products from sellers), the order is paid for, and
