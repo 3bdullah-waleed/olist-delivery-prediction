@@ -18,7 +18,7 @@ implementation itself.
 
 **Figure 1: Olist Dataset Table Relationships**
 
-![Image Alt](https://raw.githubusercontent.com/3bdullah-waleed/olist-delivery-prediction/main/image.png)
+![Image Alt](https://github.com/3bdullah-waleed/olist-delivery-prediction/blob/main/image.png)
 
 Shows the 9 raw tables in the dataset and the keys that connect them:
 `order_id`, `customer_id`, `product_id`, `seller_id`, and `zip_code_prefix`.
