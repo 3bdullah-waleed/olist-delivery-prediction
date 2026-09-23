@@ -6,3 +6,5 @@ models/*.pkl
 __pycache__/
 *.pyc
 logs/
+mlruns/
+mlflow_data/
